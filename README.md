@@ -106,8 +106,6 @@ All these features have been integrated into one single Java file without changi
 - A terminal or command prompt for compiling and running the Java file.
 
 ```markdown
-## Steps to Compile and Run
-
 1. **Clone the repo**  
    ```bash
    git clone https://github.com/gul952/RemotePatientMonitoring.git
