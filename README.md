@@ -1,19 +1,19 @@
 # Remote Patient Monitoring System
 
-The Remote Patient Monitoring System is a Java-based project that was made as a university assignment. The system allows patients, doctors, and administrators to interact with various functionalities such as patient vital sign tracking, appointment scheduling, and doctor-patient feedback.The project has been extended with advanced features—including an Emergency Alert System, Chat & Video Consultation, and Notifications & Reminders.
+The Remote Patient Monitoring System is a Java-based project that was made as a university assignment. The system allows patients, doctors, and administrators to interact with various functionalities such as patient vital sign tracking, appointment scheduling, and doctor‑patient feedback. The project has been extended with advanced features—including an Emergency Alert System, Chat & Video Consultation, and Notifications & Reminders.
 
 ## Table of Contents
 
-- [Project Overview](#project-overview)
-- [Features](#features)
-  - [Original Features](#original-features)
-  - [New Features](#new-features)
-- [Modules and Components](#modules-and-components)
-- [Installation and Running the Project](#installation-and-running-the-project)
-  - [Prerequisites](#prerequisites)
-  - [Steps to Compile and Run](#steps-to-compile-and-run)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
+- [Project Overview](#project-overview)  
+- [Features](#features)  
+  - [Original Features](#original-features)  
+  - [New Features](#new-features)  
+- [Modules and Components](#modules-and-components)  
+- [Installation and Running the Project](#installation-and-running-the-project)  
+  - [Prerequisites](#prerequisites)  
+  - [Steps to Compile and Run](#steps-to-compile-and-run)  
+- [Usage](#usage)  
+- [Project Structure](#project-structure)  
 
 ## Project Overview
 
@@ -21,163 +21,176 @@ This project started as a Remote Patient Monitoring System with core functionali
 
 Recently, the system has been enhanced by adding three new modules:
 
-- **Emergency Alert System**: Monitors patient vitals, triggers alerts via simulated email and SMS (displayed on user dashboards), and includes a panic button for immediate alerts.
-- **Chat & Video Consultation**: Simulates chat interactions between patients and doctors and generates a video call link for consultation.
+- **Emergency Alert System**: Monitors patient vitals, triggers alerts via simulated email and SMS (displayed on user dashboards), and includes a panic button for immediate alerts.  
+- **Chat & Video Consultation**: Simulates chat interactions between patients and doctors and generates a video call link for consultation.  
 - **Notifications & Reminders**: Sends medication and appointment reminders using a unified notification system that implements a common interface (Notifiable), with simulated email and SMS notifications.
 
-All these features have been integrated into one single Java file without changing the original functionality or altering user IDs or similar core aspects of the system.
+All these features have been integrated without changing the original functionality or altering core aspects of the system.
 
 ## Features
 
 ### Original Features
 
-#### Patient Management:
+#### Patient Management
 
-- **User Identification**: Patients are registered with unique IDs.
-- **Vital Signs Tracking**: Patients can record their heart rate, oxygen levels, blood pressure, and temperature. These are stored and linked to their medical history.
-- **Appointment Scheduling**: Patients can request new appointments and view the status of existing ones.
-- **Feedback and Prescription Viewing**: Patients can review doctor feedback and prescriptions.
-- **Medical History**: A comprehensive log of the patient’s records is maintained.
+- **User Identification**: Patients are registered with unique IDs.  
+- **Vital Signs Tracking**: Record heart rate, oxygen levels, blood pressure, and temperature.  
+- **Appointment Scheduling**: Request and view appointment statuses.  
+- **Feedback & Prescription Viewing**: Review doctor feedback and prescriptions.  
+- **Medical History**: Comprehensive log of patient records.
 
-#### Doctor Management:
+#### Doctor Management
 
-- **Patient Data Viewing**: Doctors can view patients’ vital signs and medical histories.
-- **Feedback and Prescription Writing**: Doctors can provide feedback and write prescriptions.
-- **Appointment Management**: Doctors can manage appointments, including approval or cancellation of pending requests.
-- **Viewing Approved Appointments**: Doctors can see the IDs of patients with approved appointments.
+- **Patient Data Viewing**: View patients’ vital signs and medical histories.  
+- **Feedback & Prescription Writing**: Provide feedback and write prescriptions.  
+- **Appointment Management**: Approve or cancel pending requests.  
+- **Viewing Approved Appointments**: See IDs of patients with approved appointments.
 
-#### Administrator Functions:
+#### Administrator Functions
 
-- **User Management**: Administrators can add, update, or remove patients and doctors.
-- **System Logs**: A log system records all events and actions within the system.
-- **User ID Overview**: Administrators can view all registered Patient and Doctor IDs.
+- **User Management**: Add, update, or remove patients and doctors.  
+- **System Logs**: Record all events and actions in the system.  
+- **User ID Overview**: View all registered Patient and Doctor IDs.
 
 ### New Features
 
 #### Module 1: Emergency Alert System
 
-- **EmergencyAlert**: Monitors patient vital signs and triggers alerts if readings exceed specified thresholds.
-- **NotificationService**: Sends simulated email and SMS alerts. These notifications are stored and viewable on user dashboards.
-- **PanicButton**: Immediately triggers alerts when pressed.
+- **EmergencyAlert**: Monitors vital signs and triggers alerts if thresholds are exceeded.  
+- **NotificationService**: Sends simulated email and SMS alerts, stored in user dashboards.  
+- **PanicButton**: Immediate alert trigger.
 
 #### Module 2: Chat & Video Consultation
 
-- **ChatServer**: Acts as a central hub, facilitating the message transfer between users.
-- **ChatClient**: Handles sending and receiving messages. An overloaded method allows specifying both sender and receiver, with messages stored in respective chat histories.
-- **VideoCall**: Simulates a video consultation by printing a join link (e.g., a mock Zoom link).
+- **ChatServer**: Central hub for message transfer and storage.  
+- **ChatClient**: Sends/receives messages with sender/receiver context; stores chat histories.  
+- **VideoCall**: Simulates a video consultation link.
 
 #### Module 3: Notifications & Reminders
 
-- **ReminderService**: Sends medication and appointment reminders.
-- **Notifiable Interface**: Ensures all notification types have a consistent method to send messages.
-- **EmailNotification and SMSNotification**: Implement the Notifiable interface to simulate delivery of notifications (and store them in user dashboards).
+- **ReminderService**: Sends medication and appointment reminders.  
+- **Notifiable Interface**: Defines `sendNotification(String recipient, String message)`.  
+- **EmailNotification & SMSNotification**: Implement Notifiable to simulate delivery.
 
-#### Enhanced User Dashboards:
+#### Enhanced User Dashboards
 
-- **Patient Dashboard**: Displays vital sign data, appointment status, feedback/prescriptions, complete medical history, an inbox for notifications/reminders, and a chat message history.
-- **Doctor Dashboard**: Provides functionality to view patient details, manage appointments, see received alerts, and access a chat message history.
+- **Patient Dashboard**: Shows vitals, appointments, feedback/prescriptions, history, notifications, and chat history.  
+- **Doctor Dashboard**: Shows patient details, appointment management, received alerts, and chat history.
 
 ## Modules and Components
 
 ### Module 1: Emergency Alert System
 
-- **EmergencyAlert**: Evaluates vital signs and triggers alerts if thresholds are exceeded.
-- **NotificationService**: Dispatches alerts via the Notifiable interface and stores them in user dashboards.
-- **PanicButton**: Provides an immediate alert mechanism.
+- **EmergencyAlert**: Checks vitals against thresholds and triggers alerts.  
+- **NotificationService**: Dispatches alerts via Notifiable and stores them.  
+- **PanicButton**: Manual alert trigger.
 
 ### Module 2: Chat & Video Consultation
 
-- **ChatServer**: Manages the transfer and storage of chat messages.
-- **ChatClient**: Sends messages with a sender and receiver context; messages are stored for both parties.
-- **VideoCall**: Generates a simulated video call link for consultations.
+- **ChatServer**: Routes and stores messages.  
+- **ChatClient**: Handles sending/receiving; logs history.  
+- **VideoCall**: Generates a mock video call link.
 
 ### Module 3: Notifications & Reminders
 
-- **ReminderService**: Sends reminders for medications and appointments.
-- **Notifiable Interface**: Defines the method `sendNotification(String recipient, String message)`.
-- **EmailNotification**: Simulates sending email alerts.
-- **SMSNotification**: Simulates sending SMS alerts.
+- **ReminderService**: Fires scheduled reminders.  
+- **Notifiable Interface**: Common notification contract.  
+- **EmailNotification / SMSNotification**: Simulated notification implementations.
 
 ## Installation and Running the Project
 
 ### Prerequisites
 
-- **Java Development Kit (JDK)**: Version 8 or later.
-- A terminal or command prompt for compiling and running the Java file.
+- **JDK 8+** (verify with `java -version`)  
+- **(Optional) JavaMail API** for email/notification features: download the latest Jakarta Mail jars (`mail.jar` and `activation.jar`) and place them in a folder named `lib/` at the root of this project.
 
-```markdown
-1. **Clone the repo**  
+### Steps to Compile and Run
+
+1. **Clone the repository**  
    ```bash
    git clone https://github.com/gul952/RemotePatientMonitoring.git
    cd RemotePatientMonitoring
    ```
 
-2. **Install prerequisites**  
-   - **JDK 8+** (check with `java -version`)  
-   - **JavaMail API** (for email reminders): download `mail.jar` + `activation.jar` and put them in a `lib/` folder  
-
-3. **Prepare output folder**  
+2. **Create an output directory**  
    ```bash
    mkdir -p bin
    ```
 
-4. **Compile**  
-   ```bash
-   # Without email support:
-   javac -d bin -sourcepath src $(find src -name "*.java")
+3. **Compile all source files**  
+   - **Without email/notification support**  
+     ```bash
+     javac -d bin -sourcepath src $(find src -name "*.java")
+     ```  
+   - **With JavaMail (email/notification) support**  
+     ```bash
+     javac -cp "lib/mail.jar:lib/activation.jar" \
+       -d bin \
+       -sourcepath src \
+       $(find src -name "*.java")
+     ```
 
-   # With email support:
-   javac -cp "lib/mail.jar:lib/activation.jar" -d bin -sourcepath src $(find src -name "*.java")
-   ```
-
-5. **Run**  
-   ```bash
-   # No email:
-   java -cp bin healthcare.main
-
-   # With email:
-   java -cp "bin:lib/mail.jar:lib/activation.jar" healthcare.main
-   ```
+4. **Run the application**  
+   - **Without JavaMail** (email/chat features skipped)  
+     ```bash
+     java -cp bin healthcare.main
+     ```  
+   - **With JavaMail**  
+     ```bash
+     java -cp "bin:lib/mail.jar:lib/activation.jar" healthcare.main
+     ```
 
 > **Notes:**  
-> - Main class: `healthcare.main` (src/healthcare/main.java)  
-> - Email helper: `javamailutil/JavaMailUtil.java` (requires the JavaMail jars)  
-> - You can also open in NetBeans (nbproject/ + build.xml) and use the IDE’s Build ▶ Run.  
-```
+> - **Main class**: `healthcare.main` (in `src/healthcare/main.java`)  
+> - **Email/notification helper**: `src/javamailutil/JavaMailUtil.java` (requires Jakarta Mail jars)  
+> - You can also open in NetBeans (includes `nbproject/` and `build.xml`) and use **Build ▶ Run**.
 
 ## Usage
 
-Upon running the project, you will see a main menu offering several user roles and extra features.
+When you run the program, a main menu appears with options for different user roles and extra features.
 
-### For Patients:
+### Patients
 
-- Enter your Patient ID to access functionalities such as entering vital signs, scheduling appointments, viewing feedback and prescriptions, and checking your medical history (e.g., P001). New IDS can be added through the admin menu if you wish
-- You can also view your notification inbox (alerts/reminders) and chat message history.
+1. Enter your **Patient ID** (e.g., `P001`).  
+2. Use menus to:  
+   - Enter and view vital signs  
+   - Schedule and check appointments  
+   - View feedback and prescriptions  
+   - View medical history  
+   - Check notification inbox (alerts/reminders)  
+   - View chat history
 
-### For Doctors:
+### Doctors
 
-- Enter your Doctor ID to view patients’ vital signs, write feedback, provide prescriptions, and manage appointments (e.g., D001).
-- You can view alerts sent (from emergency alerts or panic button actions) and view your chat message history.
+1. Enter your **Doctor ID** (e.g., `D001`).  
+2. Use menus to:  
+   - View patient vitals and history  
+   - Write feedback and prescriptions  
+   - Approve/cancel appointments  
+   - View received alerts  
+   - View chat history
 
-### For Administrators:
+### Administrators
 
-- Use the admin menu to add, update, or remove patients and doctors.
-- View system logs and all registered user IDs.
+- Access admin menu to add/update/remove users.  
+- View system logs and all registered IDs.
 
-### Extra Features:
+### Extra Features
 
-- Access the Extra Features menu to use the Emergency Alert, Panic Button, Chat & Video Consultation, and Reminders/Notifications modules.
-- For example, you can simulate a vital sign check that triggers an alert, send chat messages between users, or generate a video call link.
+- **Emergency Alert**: Simulate vital checks and alerts.  
+- **Panic Button**: Trigger immediate alert.  
+- **Chat & Video**: Exchange messages and generate video call links.  
+- **Reminders**: Send medication and appointment reminders.
 
-All alerts and chat messages are stored in the respective user dashboards, allowing both patients and doctors to see past notifications and communications.
+All alerts and chats are stored per user dashboard.
 
 ## Project Structure
 
-All functionalities are implemented in a single Java file: **HealthcareManagement.java**. This file includes:
+All functionality is in one Java file:  
+**HealthcareManagement.java**
 
-- The original Healthcare Management System code (user management, appointment scheduling, vital sign tracking, etc.).
-- New modules for Emergency Alerts, Chat & Video Consultation, and Notifications & Reminders.
-- Enhanced user dashboards for both patients and doctors (to view notifications and chat messages).
-
-
-
+This file contains:  
+- Original system code (user management, appointments, vitals, history).  
+- New modules (Emergency Alert, Chat & Video, Notifications & Reminders).  
+- Enhanced dashboards for patients and doctors.
+```
