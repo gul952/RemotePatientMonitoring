@@ -105,29 +105,47 @@ All these features have been integrated into one single Java file without changi
 - **Java Development Kit (JDK)**: Version 8 or later.
 - A terminal or command prompt for compiling and running the Java file.
 
-### Steps to Compile and Run
+```markdown
+## Steps to Compile and Run
 
-1. **Clone the Repository**:
-
+1. **Clone the repo**  
    ```bash
-   git clone <YOUR_REPOSITORY_URL>
-   cd <repository-folder>
+   git clone https://github.com/gul952/RemotePatientMonitoring.git
+   cd RemotePatientMonitoring
    ```
 
-2. **Compile the Java File**:
+2. **Install prerequisites**  
+   - **JDK 8+** (check with `java -version`)  
+   - **JavaMail API** (for email reminders): download `mail.jar` + `activation.jar` and put them in a `lib/` folder  
 
-   Since all code is in one file (HealthcareManagement.java):
-
+3. **Prepare output folder**  
    ```bash
-   javac HealthcareManagement.java
+   mkdir -p bin
    ```
 
-3. **Run the Program**:
-
+4. **Compile**  
    ```bash
-   java HealthcareManagement
+   # Without email support:
+   javac -d bin -sourcepath src $(find src -name "*.java")
+
+   # With email support:
+   javac -cp "lib/mail.jar:lib/activation.jar" -d bin -sourcepath src $(find src -name "*.java")
    ```
 
+5. **Run**  
+   ```bash
+   # No email:
+   java -cp bin healthcare.main
+
+   # With email:
+   java -cp "bin:lib/mail.jar:lib/activation.jar" healthcare.main
+   ```
+
+> **Notes:**  
+> - Main class: `healthcare.main` (src/healthcare/main.java)  
+> - Email helper: `javamailutil/JavaMailUtil.java` (requires the JavaMail jars)  
+> - You can also open in NetBeans (nbproject/ + build.xml) and use the IDE’s Build ▶ Run.  
+```
 
 ## Usage
 
