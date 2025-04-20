@@ -193,4 +193,4 @@ This file contains:
 - Original system code (user management, appointments, vitals, history).  
 - New modules (Emergency Alert, Chat & Video, Notifications & Reminders).  
 - Enhanced dashboards for patients and doctors.
-```
+
