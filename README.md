@@ -13,7 +13,7 @@ The Remote Patient Monitoring System is a Java-based project that was made as a 
   - [Prerequisites](#prerequisites)  
   - [Steps to Compile and Run](#steps-to-compile-and-run)  
 - [Usage](#usage)  
-- [Project Structure](#project-structure)  
+ 
 
 ## Project Overview
 
