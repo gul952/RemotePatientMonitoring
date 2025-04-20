@@ -149,6 +149,11 @@ All these features have been integrated without changing the original functional
 
 When you run the program, a main menu appears with options for different user roles and extra features.
 
+###Instructions to run email feature
+1. Navigate to the javaMailUtil.java file and where the email has been set to xxxx write your email.
+2. For the password you need to have an Apppassword generated
+3. Navigate to main in the javaMailUtil folder and here set the recipient email to whatever you want
+
 ### Patients
 
 1. Enter your **Patient ID** (e.g., `P001`).  
@@ -184,9 +189,6 @@ When you run the program, a main menu appears with options for different user ro
 
 All alerts and chats are stored per user dashboard.
 
-## Project Structure
-
-All functionality is in one Java file:  
 **HealthcareManagement.java**
 
 This file contains:  
